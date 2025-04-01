@@ -38,12 +38,12 @@ h1 {
 }
 
 .O{
-    background-image: url("/assets/output-onlinepngtools.png");
+    background-image: url("assets/output-onlinepngtools.png");
     background-size: contain;
 }
 
 .X {
-    background-image: url("/assets/X.png");
+    background-image: url("assets/X.png");
     background-size: contain;
     background-position-x: center;
 }
