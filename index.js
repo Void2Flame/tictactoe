@@ -1,33 +1,49 @@
 var player = [];
 var computer = [];
 var playerCount=0;
-var winner = false;
+var stopGame = false;
 
 $(".box").on("click", function () {
 
-    var randomNumber=0;
-    var computerDone= false;
-    if(isBoxTaken((Number(this.id))))
+    if(!stopGame)
     {
-        var playerChoice= (Number(this.id));
-        player.push(playerChoice);
-        player.sort(compareNumbers);
-        addingimage(true, playerChoice);
-        playerCount++;
-        if(playerCount<5){
-            while (!computerDone){
-                randomNumber= Math.floor(Math.random()*9+1);
-                computerDone=isBoxTaken(randomNumber);
-            }
-            computer.push(randomNumber);
-            computer.sort(compareNumbers);
-            addingimage(false, randomNumber);
-        }     
+        var randomNumber=0;
+        var computerDone= false;
+        if(isBoxTaken((Number(this.id))))
+        {
+            var playerChoice= (Number(this.id));
+            player.push(playerChoice);
+            player.sort(compareNumbers);
+            addingimage(true, playerChoice);
+            playerCount++;
+            if(playerCount<5){
+                while (!computerDone){
+                    randomNumber= Math.floor(Math.random()*9+1);
+                    computerDone=isBoxTaken(randomNumber);
+                }
+                computer.push(randomNumber);
+                computer.sort(compareNumbers);
+                addingimage(false, randomNumber);
+            }     
+        }
+        checkWinner(player, true);
+        checkWinner(computer, false);
     }
-    winner=checkWinner(player);
-    winner=checkWinner(computer);
+    
 });
 
+$("button").on("click", function () {
+
+    $("button").addClass("display");
+    $("h1").text("Tic tac toe");
+    $("p").text("This game is called 'Tic Tac toe' where the goal is to be the first person to get 3 boxes lining up. You will be going against an randomized computer in this game.");
+    player=[];
+    computer=[];
+    playerCount=0;
+    stopGame = false;
+    removeClassesFromBoxes();
+
+});
 
 function addingimage (player, number) {
 
@@ -59,35 +75,53 @@ function isBoxTaken (number) {
 
 }
 
-function checkWinner(array) {
-
-    console.log(array);
+function checkWinner(array, whichPlayer) {
 
     if((array.includes(1) && array.includes(2) && array.includes(3)) || (array.includes(4) && array.includes(5) && array.includes(6)) || (array.includes(7) && array.includes(8) && array.includes(9)))
     {
         console.log("Row");
-        return true;
+        return Victory(whichPlayer);
     }
  
     else if((array.includes(1) && array.includes(4) && array.includes(7)) || (array.includes(2) && array.includes(5) && array.includes(8)) || (array.includes(3) && array.includes(6) && array.includes(9)))
     {
          
         console.log("Column");
-        return true;
+         Victory(whichPlayer);
     }
 
     else if((array.includes(1) && array.includes(5) && array.includes(9)) || (array.includes(3) && array.includes(5) && array.includes(7)))
      {
         console.log("Cross");
-        return true;
+        return Victory(whichPlayer);
     }
 
 }
 
 function Victory(player) {
 
+    if(player===true){
+        $("h1").text("You win! 👑");
+        $("p").text("To restart the game press the under the boxes.");
+        $("button").removeClass("display");
+        stopGame=true;
+    }
+    else {
+        $("h1").text("Computer wins! 🤖");
+        $("p").text("To restart the game press the under the boxes.");
+        $("button").removeClass("display");
+        stopGame=true;
+    }
 }
 
 function compareNumbers(a, b) {
     return a - b;
+  }
+
+  function removeClassesFromBoxes () {
+
+    for(var i=0; i<9; i++){
+        $("#"+(i+1)).removeClass("O");
+        $("#"+(i+1)).removeClass("X");
+    }
   }

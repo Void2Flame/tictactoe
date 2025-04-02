@@ -33,17 +33,38 @@ h1 {
   
 }
 
+button {
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2rem;
+    margin: 0px auto;
+    display: block;
+    margin-top: 20px;
+
+    color: #004449;
+    border: 5px solid #006A71;
+    background-color: #9ACBD0;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius:15px 255px;
+}
+
+.display {
+    display: none;
+}
 .box:hover{
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
 .O{
-    background-image: url("assets/output-onlinepngtools.png");
+    background-image: url("/assets/output-onlinepngtools.png");
     background-size: contain;
 }
 
 .X {
-    background-image: url("assets/X.png");
+    background-image: url("/assets/X.png");
     background-size: contain;
     background-position-x: center;
 }
@@ -65,6 +86,14 @@ p {
         padding-right: 50px;
         padding-left: 50px;
     
+    }
+    
+}
+
+@media (max-width: 380px) {
+    .box {
+        height: 90px;
+        width: 90px;
     }
     
 }
