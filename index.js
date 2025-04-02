@@ -35,7 +35,7 @@ $(".box").on("vclick", function () {
 $("button").on("click", function () {
 
     $("button").addClass("display");
-    $("h1").text("Tic tac toe");
+    $("h2").text("Tic tac toe");
     $("p").text("This game is called 'Tic Tac toe' where the goal is to be the first person to get 3 boxes lining up. You will be going against an randomized computer in this game.");
     player=[];
     computer=[];
@@ -101,13 +101,13 @@ function checkWinner(array, whichPlayer) {
 function Victory(player) {
 
     if(player===true){
-        $("h1").text("You win! 👑");
+        $("h2").text("You win! 👑");
         $("p").text("To restart the game press the under the boxes.");
         $("button").removeClass("display");
         stopGame=true;
     }
     else {
-        $("h1").text("Computer wins! 🤖");
+        $("h2").text("Computer wins! 🤖");
         $("p").text("To restart the game press the under the boxes.");
         $("button").removeClass("display");
         stopGame=true;
