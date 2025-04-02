@@ -4,7 +4,6 @@ var playerCount=0;
 var stopGame = false;
 
 $('.ui-loader').find('h1').remove();
-$("button").removeClass("ui-btn ui-shadow ui-corner-all");
 
 $(".box").on("vclick", function () {
 
@@ -35,9 +34,9 @@ $(".box").on("vclick", function () {
     
 });
 
-$("button").on("click", function () {
+$(".button").on("click", function () {
 
-    $("button").addClass("display");
+    $(".button").addClass("display");
     $("h2").text("Tic tac toe");
     $("p").text("This game is called 'Tic Tac toe' where the goal is to be the first person to get 3 boxes lining up. You will be going against an randomized computer in this game.");
     player=[];
@@ -106,13 +105,13 @@ function Victory(player) {
     if(player===true){
         $("h2").text("You win! 👑");
         $("p").text("To restart the game press the under the boxes.");
-        $("button").removeClass("display");
+        $(".button").removeClass("display");
         stopGame=true;
     }
     else {
         $("h2").text("Computer wins! 🤖");
         $("p").text("To restart the game press the under the boxes.");
-        $("button").removeClass("display");
+        $(".button").removeClass("display");
         stopGame=true;
     }
 }
