@@ -41,6 +41,11 @@ h2 {
     margin: 0px auto;
     display: block;
     margin-top: 20px;
+    margin-left: 40%;
+    margin-right: 40%;
+
+    text-align: center;
+
 
     color: #004449;
     border: 5px solid #006A71;
@@ -91,6 +96,15 @@ p {
         padding-left: 20px;
         font-size: 20px;
     
+        
+    }
+
+    .button {
+        
+        font-size: 25px;
+        margin-left: 20%;
+        margin-right: 20%;
+
     }
 }
 
@@ -99,6 +113,14 @@ p {
         padding-right: 50px;
         padding-left: 50px;
     
+    }
+
+    .button {
+        
+        font-size: 30px;
+        margin-left: 30%;
+        margin-right: 30%;
+
     }
     
 }
