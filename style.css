@@ -2,6 +2,10 @@ body {
     background-color: #F2EFE7;
 }
 
+
+.ui-icon-loading {
+    display: none;
+}
 h2 {
     text-align: center;
     color: #006A71;
