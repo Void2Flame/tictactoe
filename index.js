@@ -3,6 +3,8 @@ var computer = [];
 var playerCount=0;
 var stopGame = false;
 
+$('.ui-loader').find('h1').remove();
+
 $(".box").on("vclick", function () {
 
     if(!stopGame)
