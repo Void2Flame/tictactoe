@@ -4,6 +4,7 @@ var playerCount=0;
 var stopGame = false;
 
 $('.ui-loader').find('h1').remove();
+$("button").removeClass("ui-btn ui-shadow ui-corner-all");
 
 $(".box").on("vclick", function () {
 
