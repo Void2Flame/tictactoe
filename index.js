@@ -26,10 +26,15 @@ $(".box").on("vclick", function () {
                 computer.push(randomNumber);
                 computer.sort(compareNumbers);
                 addingimage(false, randomNumber);
+            }
+            else{
+                stopGame=true;
+                VictoryOrDraw(3)
             }     
         }
-        checkWinner(player, true);
-        checkWinner(computer, false);
+
+        checkWinner(player, 1);
+        checkWinner(computer, 2);
     }
     
 });
@@ -82,45 +87,52 @@ function checkWinner(array, whichPlayer) {
     if((array.includes(1) && array.includes(2) && array.includes(3)) || (array.includes(4) && array.includes(5) && array.includes(6)) || (array.includes(7) && array.includes(8) && array.includes(9)))
     {
         console.log("Row");
-        return Victory(whichPlayer);
+        return VictoryOrDraw(whichPlayer);
     }
  
     else if((array.includes(1) && array.includes(4) && array.includes(7)) || (array.includes(2) && array.includes(5) && array.includes(8)) || (array.includes(3) && array.includes(6) && array.includes(9)))
     {
          
         console.log("Column");
-         Victory(whichPlayer);
+        VictoryOrDraw(whichPlayer);
     }
 
     else if((array.includes(1) && array.includes(5) && array.includes(9)) || (array.includes(3) && array.includes(5) && array.includes(7)))
      {
         console.log("Cross");
-        return Victory(whichPlayer);
+        return VictoryOrDraw(whichPlayer);
     }
 
 }
 
-function Victory(player) {
+function VictoryOrDraw(winner) {
 
-    if(player===true){
+    if(winner===1){
         $("h2").text("You win! 👑");
         $("p").text("To restart the game press the under the boxes.");
         $(".button").removeClass("display");
         stopGame=true;
     }
-    else {
+    else if (winner===2){
         $("h2").text("Computer wins! 🤖");
         $("p").text("To restart the game press the under the boxes.");
         $(".button").removeClass("display");
         stopGame=true;
     }
+    else{
+        $("h2").text("Its a draw! 🏳️");
+        $("p").text("To restart the game press the under the boxes.");
+        $(".button").removeClass("display");
+        stopGame=true;
+    }
+
 }
 
 function compareNumbers(a, b) {
     return a - b;
-  }
+}
 
-  function removeClassesFromBoxes () {
+function removeClassesFromBoxes () {
 
     for(var i=0; i<9; i++){
         $("#"+(i+1)).removeClass("O");
