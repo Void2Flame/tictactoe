@@ -98,7 +98,7 @@ p {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px) and (min-width: 381px) {
     p {
         padding-right: 50px;
         padding-left: 50px;
