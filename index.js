@@ -3,7 +3,7 @@ var computer = [];
 var playerCount=0;
 var stopGame = false;
 
-$(".box").on("click", function () {
+$(".box").on("vclick", function () {
 
     if(!stopGame)
     {
